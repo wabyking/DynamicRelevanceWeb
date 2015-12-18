@@ -46,19 +46,7 @@ a:hover {
 }
 </style>
 
-<script src="js/intro.js"></script>
-<script> 
-window.onload = doIt(); 
-function doIt() { 
-	//alert("这是一个例子");
-	introJs().start(); 
-	alert ("introduction over"); 
-	
-function query()
-{
-	window.location.href='displayDocument?which=-1';
-} 
-</script>
+
 
 
 </head>

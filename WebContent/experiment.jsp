@@ -59,6 +59,11 @@ a{
 		
 			<p class="title1 ">实验步骤</p>
 			<div class="col-md-offset-7">
+			
+				<span class="button-wrap">
+		   				 <a  id="startButton" class="button button-pill button-raised button-action button-rounded">演示</a>
+		   				  
+		  		</span>
 				<span class="button-wrap">
 		   				 <a href="openEyeTracker" class="button button-pill button-raised button-caution">启动眼动仪</a>
 		   				  
@@ -71,21 +76,16 @@ a{
 			
 			<div class="list-group col-md-7 col-md-offset-3" style="margin-top:30px">
 				<h4>您获得的随机的查询的顺序如下：请先<strong>启动眼动仪</strong>然后再<strong>开始实验</strong></h4>	
-				<a id="startButton" class="btn btn-large btn-success" href="javascript:void(0);">Show me how</a>
+				
 				<c:forEach var="doc" items="${docs}" varStatus="status">
 									
-					<div href="#" class="list-group-item " data-step="${status.count+1}" data-intro="Ok, wasn't that fun?" data-position='right'>
+					<div href="#" class="list-group-item " data-step="${status.count}" data-intro="Ok, wasn't that fun?" data-position='right'>
 					  	<span class="badge ${doc.option==1?"badge-success":""}">${doc.option==1?"3":"2"} minutes</span>
 					    <h4 class="list-group-item-heading">${doc.query}&nbsp;&nbsp;&nbsp;&nbsp;${doc.option==1?"":""}</h4>
 					    <p class="list-group-item-text">${doc.discription}</p>
 			    
 			  		</div>
-									
-				
 				</c:forEach>
-				
-				
-			
 			  
 			</div>
 		</div>
@@ -96,7 +96,7 @@ a{
     <script type="text/javascript">
       document.getElementById('startButton').onclick = function() {
         introJs().setOption('doneLabel', 'Next page').start().oncomplete(function() {
-          window.location.href = 'second.html?multipage=true';
+          window.location.href = 'demo1.jsp?multipage=true';
         });
       };
     </script>
