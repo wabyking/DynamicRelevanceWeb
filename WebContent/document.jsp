@@ -55,6 +55,11 @@ a:hover {
 	color: black;
 	text-decoration: none;
 }
+div {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 
 }
 </style>

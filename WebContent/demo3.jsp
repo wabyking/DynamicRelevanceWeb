@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="cache/font-awesome.min.css">
 <link rel="stylesheet" href="css/buttons.css">
 
+<link href="css/introjs.css" rel="stylesheet">
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="bootstrap/js/bootstrap-paginator.js"></script>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"
@@ -47,7 +48,7 @@ a:hover {
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="progress"   >
+			<div class="progress"  >
 	  			<div class="progress-bar progress-bar-success" style="width: 20%">
 	    			<span class="sr-only">20% Complete (success)</span>
 	  			</div>
@@ -67,9 +68,9 @@ a:hover {
 				
 			
 					
-					<div class=" col-md-offset-2" style="margin-top:10%">
+					<div class=" col-md-offset-2" style="margin-top:10%" step="1" data-intro="点击此按钮开启下一个查询" data-position="right">
 				 		<span class="button-wrap">
-	   				 		<a href="nextExperiment" class="button button-pill button-raised button-caution">下一个</a>
+	   				 		<a href="" class="button button-pill button-raised button-caution">下一查询</a>
 	  					</span>
   					</div>
 				
@@ -78,6 +79,13 @@ a:hover {
 
 		
 	</div>
-
+	 <script type="text/javascript" src="js/intro.js"></script>
+    <script type="text/javascript">
+    
+    	introJs().setOption('doneLabel', '开启取词').start().oncomplete(function() {
+        	window.location.href = 'firstDocument';
+      });
+      
+    </script>
 </body>
 </html>

@@ -1,27 +1,26 @@
 package Controller;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Tools.EyeTracker;
+import Tools.TobiiStudio;
+
 /**
- * Servlet implementation class openEyeTracker
+ * Servlet implementation class firstDocument
  */
-@WebServlet("/openEyeTracker")
-public class openEyeTracker extends HttpServlet {
+@WebServlet("/firstDocument")
+public class firstDocument extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public openEyeTracker() {
+    public firstDocument() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,29 +39,11 @@ public class openEyeTracker extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		//request.setAttribute("step", 0);
 		
-			Runtime r = Runtime.getRuntime();
-
-			Process p = null;
-			try {
-				p = r.exec("D:\\tobii-analytics-sdk-x64\\DotNet\\Basic Eyetracking Sample\\bin\\Debug\\Basic Eyetracking Sample.exe ");
-				InputStream fis = p.getInputStream();
-				BufferedReader br = new BufferedReader(new InputStreamReader(fis));
-				String line = null;
-//sword +"\t" + countTimes + "\t" + seeTime + "\t" + gd.LeftPupilDiameter + "\t" + gd.RightPupilDiameter + "\t" +gd.Timestamp + "\n";
-				while ((line = br.readLine()) != null) {
-					
-					//System.out.println(line);
-				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			request.getRequestDispatcher("loadingEyeTracker.jsp").forward(request,response);
-
-			
-		}
-
-	
+		EyeTracker.openEyeTracker();
+		TobiiStudio.openTobii();
+		request.getRequestDispatcher("loadingEyeTracker.jsp").forward(request,response);
+	}
 
 }

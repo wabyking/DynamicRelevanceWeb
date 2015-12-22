@@ -8,7 +8,7 @@
  -->
 <link rel="stylesheet" href="cache/font-awesome.min.css">
 <link rel="stylesheet" href="css/buttons.css">
-
+<title>基于眼动的动态相关性实验</title>
 
 <script src="http://code.jquery.com/jquery.js"></script>
 

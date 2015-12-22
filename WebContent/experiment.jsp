@@ -8,7 +8,7 @@
  -->
 <link rel="stylesheet" href="cache/font-awesome.min.css">
 <link rel="stylesheet" href="css/buttons.css">
-
+<title>实验首页</title>
 
 <script src="http://code.jquery.com/jquery.js"></script>
 
@@ -57,19 +57,17 @@ a{
 	<div class="main">
 		
 		
-			<p class="title1 ">实验步骤</p>
+			<p class="title1 ">查询词一览</p>
 			<div class="col-md-offset-7">
 			
 				<span class="button-wrap">
 		   				 <a  id="startButton" class="button button-pill button-raised button-action button-rounded">演示</a>
 		   				  
 		  		</span>
-				<span class="button-wrap">
-		   				 <a href="openEyeTracker" class="button button-pill button-raised button-caution">启动眼动仪</a>
-		   				  
-		  		</span>
+		  		
+				
 		  		<span class="button-wrap">
-		   				 <a href="test.jsp?step=0" class="button button-pill button-raised button-royal">开始实验</a>
+		   				 <a href="firstDocument" class="button button-pill button-raised button-royal">开始实验</a>
 		   				  
 		  		</span>
 			</div>
@@ -79,7 +77,7 @@ a{
 				
 				<c:forEach var="doc" items="${docs}" varStatus="status">
 									
-					<div href="#" class="list-group-item " data-step="${status.count}" data-intro="Ok, wasn't that fun?" data-position='right'>
+					<div href="#" class="list-group-item " data-step="${status.count}" data-intro="关于 ${doc.query} 的查询，本次查询需要判断<strong>${doc.option+1}</strong>篇文档" data-position='right'>
 					  	<span class="badge ${doc.option==1?"badge-success":""}">${doc.option==1?"3":"2"} minutes</span>
 					    <h4 class="list-group-item-heading">${doc.query}&nbsp;&nbsp;&nbsp;&nbsp;${doc.option==1?"":""}</h4>
 					    <p class="list-group-item-text">${doc.discription}</p>

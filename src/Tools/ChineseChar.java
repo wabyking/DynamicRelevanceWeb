@@ -42,7 +42,7 @@ public class ChineseChar {
             }
 
         }
-        if(count*1.0/ch.length>0.1)
+        if(count*1.0/ch.length>0.5)
         	return true;
 
         return false;

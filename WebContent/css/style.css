@@ -1,0 +1,15 @@
+body {
+	background: rgb(238, 238, 238);
+}
+* {
+	margin: 0px; padding: 0px; position: absolute;
+}
+input[type='text'] {
+	padding: 6px; border: 1px solid rgb(221, 221, 221); left: 130px; top: 30px; width: 200px; text-transform: uppercase; font-size: 18px;
+}
+input[type='submit'] {
+	background: mediumpurple; border: 0px currentColor; left: 350px; top: 30px; width: 100px; height: 35px; color: rgb(255, 255, 255); line-height: 35px; font-size: 18px; display: block; cursor: pointer;
+}
+form {
+	width: 600px; height: 100px;
+}

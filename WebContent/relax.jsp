@@ -6,7 +6,7 @@
 
 <meta chaset="utf-8">
 
-<title>Baigle Search</title>
+<title>next</title>
 <script src="cache/jquery.min.js"></script>
 <link rel="stylesheet" href="cache/font-awesome.min.css">
 <link rel="stylesheet" href="css/buttons.css">
@@ -64,7 +64,7 @@ a:hover {
 					<p class="title">您完成了一次查询，休息一下开始下一个查询</p>
 					<div class="col-md-4 col-md-offset-2" style="margin-top:10%">
 				 	<span class="button-wrap">
-	   				 	<a href="nextExperiment" class="button button-pill button-raised button-caution">下一个</a>
+	   				 	<a  onclick=" setTimeout('window.location.href=\'nextExperiment\'',2000);" class="button button-pill button-raised button-caution">next</a>
 	  				</span>
   				</div>
 				</c:if>

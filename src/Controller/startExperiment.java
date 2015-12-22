@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Tools.ChineseName;
+import Tools.EyeTracker;
 
 import DAO.QueryDocumentPairDAO;
 import DAO.UserDAO;
@@ -48,6 +49,7 @@ public class startExperiment extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		Map<Integer,QueryDocumentsPair> docs=QueryDocumentPairDAO.getAll();
 		int len=docs.size();
 		List<Integer> option=Random.getBoolList(len);
@@ -80,5 +82,7 @@ public class startExperiment extends HttpServlet {
 		
 		
 	}
+	
+	
 
 }
