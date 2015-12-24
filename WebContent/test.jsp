@@ -6,7 +6,7 @@
 
 <meta chaset="utf-8">
 
-<title>Baigle Search</title>
+<title>${docs.get(step).query}</title>
 <script src="http://code.jquery.com/jquery.js"></script>
 
 

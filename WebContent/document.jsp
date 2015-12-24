@@ -6,7 +6,7 @@
 
 <meta chaset="utf-8">
 
-<title>Baigle Search</title>
+<title>${which==1?docs.get(step).title2:docs.get(step).title1}</title>
 <script src="http://code.jquery.com/jquery.js"></script>
 
 
