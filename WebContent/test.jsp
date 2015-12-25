@@ -69,20 +69,43 @@ div {
 					               <input type="text" value="${docs.get(step).query}" style="height:30px" class="form-control" readonly="true">
 					               <span class="input-group-btn"  >
 					                 <!--  <button class="btn btn-default " type="button" disabled="disabled"> -->
-					                 <button class="btn btn-default " type="button" onclick="window.location.href='viewDocument?which=-1'">
+					                 <button class="btn btn-default " id="query_button" type="button" onclick_backup="window.location.href='viewDocument?which=-1'">
 					                     		查询
 					                  </button>
 					               </span>
 					            </div><!-- /input-group -->   <!-- <strong>${docs.get(step).query}</strong> -->  
-							<c:if test="${doubleFlag!=null}">
-								<h4>这次查询对应两个文档</h4>
-							</c:if>
-							<c:if test="${doubleFlag==null}">
-								<h4>这次查询对应1个文档</h4>
-							</c:if>
 							
 							
-							<a  data-step="2" data-intro="Get it, use it."> ${docs.get(step).discription}</a>
+							
+							<div id="discription">
+								<a  > ${docs.get(step).discription}</a>
+							</div>
+							<div id="serps">
+								<c:if test="${doubleFlag!=null}">
+									<h4>这次查询对应两个文档</h4>
+									<p style="font-size: 16px;">
+										<h4>
+											<a style="color: blue; font-size: 17px" href="viewDocument?which=-1">title:<strong>${ docs.get(step).title1}</strong></a>
+										</h4>
+               							{ docs.get(step).interferedDocument}
+                						<h5 style="color: #008000">
+                							<small>时间  链接</small>得分
+										</h5>
+									</p>
+								</c:if>	
+								<c:if test="${doubleFlag==null}">
+									<h4>这次查询对应1个文档</h4>
+								</c:if>
+									<p style="font-size: 16px;">
+										<h4>
+											<a style="color: blue; font-size: 17px" href="viewDocument?which=1">title:<strong>${ docs.get(step).title2}</strong></a>
+										</h4>
+               							{ docs.get(step).document}
+                						<h5 style="color: #008000">
+                							<small>时间  链接</small>得分
+										</h5>
+									</p>
+							</div>
 					</div>
 			
 		</div>
@@ -90,6 +113,23 @@ div {
 
 		
 	</div>
-
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#serps").hide();
+		  	$("#query_button").click(function(){
+		  		if($("#serps").is(":hidden")){
+		  			$("#discription").hide();
+			  		$("#serps").show();
+			  		this.attr("text","显示");
+		  		}
+		  		else{
+		  			$("#discription").show();
+			  		$("#serps").hide();
+			  		this.attr("text","查询");
+		  		}
+		  		
+		  	});
+		});
+	</script>
 </body>
 </html>
