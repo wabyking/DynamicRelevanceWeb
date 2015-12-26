@@ -91,18 +91,21 @@ div {
 								<c:if test="${doubleFlag!=null}">
 									
 									<p style="font-size: 16px;">
+									<p style="font-size: 16px; margin-top:10%">
 										<h4>
-											<img src="images/1.png"  style="width:20px;height:20px;">
+											<img src="images/1.png"  style="width:15px;height:15px;">
 											<a style="color: blue; font-size: 17px" href="viewDocument?which=-1"><strong>${ docs.get(step).title1}</strong></a>
 										</h4>
+										<!-- 
                							{ docs.get(step).interferedDocument}
                 						<h5 style="color: #008000">
                 							<small>时间  链接</small>得分
 										</h5>
+										 -->
 									</p>
 								</c:if>	
 								
-									<p style="font-size: 16px;">
+									<p style="font-size: 16px;margin-top:10%">
 										<h4>
 										<c:if test="${doubleFlag==null}">
 											<img src="images/1.png" style="width:15px;height:15px;">
@@ -113,10 +116,12 @@ div {
 											
 											<a style="color: blue; font-size: 17px" href="viewDocument?which=1"><strong>${ docs.get(step).title2}</strong></a>
 										</h4>
+										<!-- 
                							{ docs.get(step).document}
                 						<h5 style="color: #008000">
                 							<small>时间  链接</small>得分
 										</h5>
+										 -->
 									</p>
 							</div>
 					</div>
