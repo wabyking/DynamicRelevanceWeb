@@ -18,7 +18,8 @@
 
 <link rel="stylesheet" href="bootstrap/css/bootstrap-combined.min.css">
  <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
+<link href="css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
+<script src="js/star-rating.js" type="text/javascript"></script>
 <link href="css/index.css" type="text/css">
 
 <style type="text/css">
@@ -95,6 +96,7 @@ a:hover {
 中国的传统艺术形式有国乐、相声、戏曲、书法、国画、文学、陶瓷艺术、雕刻等，传统娱乐活动有象棋、围棋和麻将等。中国的武术举世闻名。茶、酒、菜和筷子等为中国的特色饮食文化，春节（旧历新年）、元宵、清明、端午、七夕、中秋、重阳、冬至等为传统节日。中国传统上是一个儒学国家，以夏历为历法，以五伦为道德准则。传统中国人有强烈的父系宗族观念和祖先崇拜，因此将代表家庭的姓氏置于人名之前。中国还重视教育及对人才的选拔，春秋时期孔子“有教无类，因材施教”开始办私塾培养人才，汉朝时采用察举推选政府官员，隋朝起实行科举在平民中选拔人才。此外，中国历朝历代都设有史官，因此保存有十分详尽的历史资料，如《二十四史》、《资治通鉴》等。中国古代在文化、科技等方面有所成就，明清以来，西方近代思想传入中国，使得西方“科学”、“民主”、“共产主义”等思想在今日中国占有重要地位</a>
 							
 					</div>
+					<!--  
 					<div class="col-md-7 col-md-offset-3 " style="margin-top: 30px;" data-step="4" data-intro="根据判断点击一个按钮" data-position="right">
 						
 						
@@ -107,6 +109,23 @@ a:hover {
   
   
 					</div>
+					-->
+					<div class="col-md-7 col-md-offset-3 " style="margin-top: 10px;"  >
+						<form action="label"  methon="post">
+						
+							<input type="hidden"  value="${docs.get(step).id}" name="id">
+							<input type="hidden"  value="${which}" name="which">
+							<input type="hidden"  value="${next}" name="next">
+							<div class="col-md-5"  data-step="4" data-intro="按照星级选择自己的判断，星星越多表示越相关" data-position="left">
+    			
+    							<input id="value" name="value" value="2" type="number" class="rating" min=0 max=4 step=1 data-size="md">
+    						</div>	
+							<div class="col-md-2" style="margin-top: 20px;" data-step="5" data-intro="确认评分，提交结果" data-position="right">
+    							<button type="确认" class="btn btn-primary">提交结果</button>
+    						</div>
+    					
+						</form>
+					</div>
 		</div>
 
 
@@ -115,7 +134,7 @@ a:hover {
 	 <script type="text/javascript" src="js/intro.js"></script>
     <script type="text/javascript">
     
-    	introJs().setOption('doneLabel', 'relevance').start().oncomplete(function() {
+    	introJs().setOption('doneLabel', 'submit').start().oncomplete(function() {
         	window.location.href = 'demo3.jsp?multipage=true';
       });
       

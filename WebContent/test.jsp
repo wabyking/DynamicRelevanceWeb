@@ -46,6 +46,10 @@ div {
     text-align: justify;
     text-justify: inter-word;
 }
+.nums
+{
+	color:#999;
+}
 
 }
 </style>
@@ -59,13 +63,13 @@ div {
 		<div class="row">
 			<jsp:include page="progress.jsp" flush="false" />
 			
-				<div id="custom-search-input " style="margin-top: 10px;">
+				<div id="custom-search-input " >
 						
 					<div class="input-group col-md-7 col-md-offset-3 " >
 						<div class="col-md-2" >
 							<h4>查询词</h4>
 						</div>
-							<div class="input-group col-md-6 " style="margin-bottom:10%" data-step="1" data-intro="Get it, use it.">
+							<div class="input-group col-md-6 " style="margin-bottom:5%" data-step="1" data-intro="Get it, use it.">
 					               <input type="text" value="${docs.get(step).query}" style="height:30px" class="form-control" readonly="true">
 					               <span class="input-group-btn"  >
 					                 <!--  <button class="btn btn-default " type="button" disabled="disabled"> -->
@@ -77,15 +81,19 @@ div {
 							
 							
 							
-							<div id="discription">
+							<div id="discription" style="margin-top:10%">
 								<a  > ${docs.get(step).discription}</a>
 							</div>
 							<div id="serps">
+								<div class="nums">
+									<h6>在0.001s内查出了   <strong>${doubleFlag==null?1:2} </strong>条结果</h6>
+								</div>
 								<c:if test="${doubleFlag!=null}">
-									<h4>这次查询对应两个文档</h4>
+									
 									<p style="font-size: 16px;">
 										<h4>
-											<a style="color: blue; font-size: 17px" href="viewDocument?which=-1">title:<strong>${ docs.get(step).title1}</strong></a>
+											<img src="images/1.png"  style="width:20px;height:20px;">
+											<a style="color: blue; font-size: 17px" href="viewDocument?which=-1"><strong>${ docs.get(step).title1}</strong></a>
 										</h4>
                							{ docs.get(step).interferedDocument}
                 						<h5 style="color: #008000">
@@ -93,12 +101,17 @@ div {
 										</h5>
 									</p>
 								</c:if>	
-								<c:if test="${doubleFlag==null}">
-									<h4>这次查询对应1个文档</h4>
-								</c:if>
+								
 									<p style="font-size: 16px;">
 										<h4>
-											<a style="color: blue; font-size: 17px" href="viewDocument?which=1">title:<strong>${ docs.get(step).title2}</strong></a>
+										<c:if test="${doubleFlag==null}">
+											<img src="images/1.png" style="width:15px;height:15px;">
+										</c:if>
+										<c:if test="${doubleFlag!=null}">
+											<img src="images/2.png" style="width:15px;height:15px;">
+										</c:if>
+											
+											<a style="color: blue; font-size: 17px" href="viewDocument?which=1"><strong>${ docs.get(step).title2}</strong></a>
 										</h4>
                							{ docs.get(step).document}
                 						<h5 style="color: #008000">
@@ -116,16 +129,17 @@ div {
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#serps").hide();
+			//$("#query_button").val("我是一个按钮！")
 		  	$("#query_button").click(function(){
 		  		if($("#serps").is(":hidden")){
 		  			$("#discription").hide();
 			  		$("#serps").show();
-			  		this.attr("text","显示");
+			  		$("this").attr("text","显示");
 		  		}
 		  		else{
 		  			$("#discription").show();
 			  		$("#serps").hide();
-			  		this.attr("text","查询");
+			  		$("this").attr("text","查询");
 		  		}
 		  		
 		  	});

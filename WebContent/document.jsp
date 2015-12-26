@@ -17,8 +17,9 @@
 <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet"> -->
 
 <link rel="stylesheet" href="bootstrap/css/bootstrap-combined.min.css">
- <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
+<link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
+<script src="js/star-rating.js" type="text/javascript"></script>
 <link href="css/index.css" type="text/css">
 
 <style type="text/css">
@@ -86,7 +87,7 @@ div {
 								<a> ${which==1?docs.get(step).document:docs.get(step).interferedDocument}</a>
 							
 					</div>
-					<div class="col-md-7 col-md-offset-3 " style="margin-top: 30px;">
+					<!----<div class="col-md-7 col-md-offset-3 " style="margin-top: 30px;">
 						
 						
 						<div class="col-md-3  " >
@@ -95,14 +96,45 @@ div {
 						<div class="col-md-3 col-md-offset-1" >
 						 <button id="down" class="button button-3d button-box button-jumbo" onclick="window.location.href='label?value=0&id=${docs.get(step).id}&which=${which}&next=${next}'"><i class="fa fa-thumbs-down">&nbsp;irrelevance</i></button>
 						 </div>
+  						
   
-  
+					</div>
+					-->
+					<div class="col-md-9 col-md-offset-3 " style="margin-top: 10px;">
+						<form id="labelForm" action="label"  methon="post">
+						
+							<input type="hidden"  value="${docs.get(step).id}" name="id">
+							<input type="hidden"  value="${which}" name="which">
+							<input type="hidden"  value="${next}" name="next">
+							<div class="col-md-5" >
+    			
+    							<input id="value" name="value" value="2" type="number" class="rating" min=0 max=4 step=1 data-size="md">
+    						</div>	
+							<div class="col-md-2" style="margin-top: 20px;" >
+    							<button id="labelButton" class="btn btn-primary">提交</button>
+    						</div>
+    					
+						</form>
 					</div>
 		</div>
 
 
 		
 	</div>
-
+	<script type="text/javascript">
+		$(document).ready(function(){
+		
+	  		$("#labelButton").click(function(){
+	  			if($("#value").val()!=0)
+	  				$("#labelForm").submit();
+	  			else
+	  			{
+	  				alert("请选择相关性判定的等级，只能是1~4星");
+	  				return false;
+	  			}
+	  		
+	  		});
+		});
+	</script>
 </body>
 </html>

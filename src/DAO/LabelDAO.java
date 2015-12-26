@@ -18,7 +18,9 @@ public class LabelDAO {
 	public static void label(String name,Label label)
 	{
 		MongoDatabase db=MongoDB.getDatabase();
-		
+		//new Document("$set", new Document("address.street", "East 31st Street"))
+		//db.getCollection("label").updateOne(new Document("name", name),
+		 //       new Document("$set", new Document(label.getId()+".order"+label.getOrder(), label.getValue())));
 		db.getCollection("label").updateOne(new Document("name", name),
 		        new Document("$set", new Document(label.getId()+".order"+label.getOrder(), label.getValue())));
 	}
@@ -26,21 +28,31 @@ public class LabelDAO {
 	{
 		MongoDatabase db=MongoDB.getDatabase();
 		List<Document> list=new ArrayList<Document>();
+		db.getCollection("label").insertOne(new Document("name", name));
 		for(int i=0;i<qds.size();i++)
 		{
 			QueryDocumentsPair qd=qds.get(i);
 			Document doc=new Document();
 			if(qd.getOption() ==1)
 			{
-				doc.append("order1", -1).append("order0", -1);
+				//doc.append("order1", -1).append("order0", -1);
+				db.getCollection("label").updateOne(new Document("name", name),
+				        new Document("$set", new Document(String.valueOf(qd.getId())+".order1", -1)));
+				db.getCollection("label").updateOne(new Document("name", name),
+				        new Document("$set", new Document(String.valueOf(qd.getId())+".order0", -1)));
 			}
 			else
-				doc.append("order1", -1);
-			doc.append("id",qd.getId() );
-			list.add(doc);
+			{
+				//doc.append("order1", -1);
+			
+			db.getCollection("label").updateOne(new Document("name", name),
+			        new Document("$set", new Document(String.valueOf(qd.getId())+".order1", -1)));
+			}
+			//list.add(doc);
 			
 		}
-		db.getCollection("label").insertOne(new Document("name",name).append("score",asList(list)));
+		//db.getCollection("label").insertOne(new Document("name",name).append("score",asList(list)));
+		//db.getCollection("label").insertOne(new Document("name",name).append("score",list));
 	}
 	
 	
