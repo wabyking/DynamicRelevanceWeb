@@ -108,7 +108,7 @@ div {
 							<input type="hidden"  value="${next}" name="next">
 							<div class="col-md-5" >
     			
-    							<input id="value" name="value" value="2" type="number" class="rating" min=0 max=4 step=1 data-size="md">
+    							<input id="value" name="value" value="0" type="number" class="rating" min=0 max=4 step=1 data-size="md">
     						</div>	
 							<div class="col-md-2" style="margin-top: 20px;" >
     							<button id="labelButton" class="btn btn-primary">提交</button>

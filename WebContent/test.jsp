@@ -90,7 +90,6 @@ div {
 								</div>
 								<c:if test="${doubleFlag!=null}">
 									
-									<p style="font-size: 16px;">
 									<p style="font-size: 16px; margin-top:10%">
 										<h4>
 											<img src="images/1.png"  style="width:15px;height:15px;">
