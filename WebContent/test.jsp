@@ -108,12 +108,14 @@ div {
 										<h4>
 										<c:if test="${doubleFlag==null}">
 											<img src="images/1.png" style="width:15px;height:15px;">
+											<a style="color: blue; font-size: 17px" href="viewDocument?which=1"><strong>${ docs.get(step).title2}</strong></a>
 										</c:if>
 										<c:if test="${doubleFlag!=null}">
 											<img src="images/2.png" style="width:15px;height:15px;">
+											<a id="secondDoc" style="color: blue; font-size: 17px" href="viewDocument?which=1"><strong>${ docs.get(step).title2}</strong></a>
 										</c:if>
 											
-											<a style="color: blue; font-size: 17px" href="viewDocument?which=1"><strong>${ docs.get(step).title2}</strong></a>
+											 
 										</h4>
 										<!-- 
                							{ docs.get(step).document}
@@ -147,6 +149,11 @@ div {
 		  		}
 		  		
 		  	});
+			$("#secondDoc").click(function(){
+					alert("请按照顺序先点击第一篇文档");
+					return false;
+				}
+			);
 		});
 	</script>
 </body>

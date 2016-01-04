@@ -52,7 +52,7 @@ public class startExperiment extends HttpServlet {
 		
 		Map<Integer,QueryDocumentsPair> docs=QueryDocumentPairDAO.getAll();
 		int len=docs.size();
-		List<Integer> option=Random.getBoolList(len);
+		List<Integer> option=Random.getBoolListWithoutRandom(len);
 		List<Integer> order=Random.randomOrder(len);
 		
 		List<QueryDocumentsPair> qds=new ArrayList<QueryDocumentsPair>();
