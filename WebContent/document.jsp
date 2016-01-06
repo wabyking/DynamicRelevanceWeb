@@ -60,6 +60,10 @@ div {
     text-align: justify;
     text-justify: inter-word;
 }
+p
+{
+	 text-indent:50px;
+}
 
 
 }
@@ -72,7 +76,7 @@ div {
 			
 				<div id="custom-search-input " style="margin-top: 30px;">
 
-					<div class="input-group col-md-8 col-md-offset-2 ">
+					<div class="input-group col-md-10 col-md-offset-1 ">
 							
 							 <div class="input-group">
 					               <input type="text" value="${docs.get(step).query}" style="height:30px" class="form-control" readonly="true">
@@ -84,7 +88,10 @@ div {
 					            </div><!-- /input-group -->
 					            <br/><br/>
 					            <p>本次查询还需要看<strong>${next}</strong>篇文档</p>
-								<a> ${which==1?docs.get(step).document:docs.get(step).interferedDocument}</a>
+					            <div style="text-align:center">
+					            	<h3>${which==1?docs.get(step).title2:docs.get(step).title1}</h3>
+					            </div>
+								<p> ${which==1?docs.get(step).document:docs.get(step).interferedDocument}</p>
 							
 					</div>
 					<!----<div class="col-md-7 col-md-offset-3 " style="margin-top: 30px;">
