@@ -28,7 +28,7 @@ public class QueryDocumentPairDAO {
 		    	QueryDocumentsPair qd=new QueryDocumentsPair(id,(String)document.get("query"),(String)document.get("discription"),(String)document.get("document1"),(String)document.get("document2"));
 		    	qd.setTitle1((String)document.get("title1"));
 		    	qd.setTitle2((String)document.get("title2"));
-		    	System.out.println(document.get("discription"));
+		    	//System.out.println(document.get("discription"));
 		    	qdmap.put(id,qd);
 		    }
 		});

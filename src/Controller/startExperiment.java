@@ -73,7 +73,7 @@ public class startExperiment extends HttpServlet {
         //}
         String name=(String)session.getAttribute("user");
         if(name==null){
-        	name=ChineseName.getChinese()+"~";
+        	name=ChineseName.getName()+"~";
         	session.setAttribute("user",name);
         }
         LabelDAO.addUser(name,qds);

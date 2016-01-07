@@ -1,10 +1,12 @@
 package Tools;
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 public class ChineseName {
 
-	public static void main(String[] args) {
+	public static String getName() {
 		Random random=new Random(System.currentTimeMillis());
 		/* 598 百家姓 */
 		String[] Surname= {"赵","钱","孙","李","周","吴","郑","王","冯","陈","褚","卫","蒋","沈","韩","杨","朱","秦","尤","许",
@@ -42,7 +44,10 @@ public class ChineseName {
 		}else {
 			name+=getChinese();
 		}
-		System.out.println(name);
+		 Long timeStamp = System.currentTimeMillis();  //获取当前时间戳
+	     SimpleDateFormat sdf=new SimpleDateFormat("$yyyy-MM-dd-HH:mm:ss");
+	     String sd = sdf.format(new Date(Long.parseLong(String.valueOf(timeStamp))));  
+		return name+sd;
 	}
 	
 	public static String getChinese() {
@@ -62,6 +67,10 @@ public class ChineseName {
 			e.printStackTrace();
 		}
 			return str;
+	}
+	public static void main(String args[])
+	{
+		System.out.println(ChineseName.getName());
 	}
 
 }

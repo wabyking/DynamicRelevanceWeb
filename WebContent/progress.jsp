@@ -5,7 +5,7 @@
 
 
 <div class="progress">
-	  			<div class="progress-bar progress-bar-success" style="width: ${step*100.0/len}%">
+	  			<div class="progress-bar progress-bar-success " style="width: ${step*100.0/len}%">
 	    			<span class="sr-only">${step*100.0/len}% Complete (success)</span>
 	  			</div>
 	  			

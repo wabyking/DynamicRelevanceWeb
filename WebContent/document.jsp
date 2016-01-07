@@ -24,7 +24,7 @@
 
 <style type="text/css">
 a {
-	font-size: 20px;
+	font-size: 23px;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 	line-height: 1.42857143;
@@ -62,10 +62,17 @@ div {
 }
 p
 {
-	 text-indent:50px;
+	
+	
 }
-
-
+.path
+{
+	font-size:15px;
+}
+.badge
+{
+	font-size:30px;border-radius: 30px;min-width: 30px;padding: 10px 20px;color: #fff;
+}
 }
 </style>
 </head>
@@ -78,18 +85,28 @@ p
 
 					<div class="input-group col-md-10 col-md-offset-1 ">
 							
-							 <div class="input-group">
-					               <input type="text" value="${docs.get(step).query}" style="height:30px" class="form-control" readonly="true">
+							 <div class="input-group  col-md-10">
+					               <input type="text" value="${docs.get(step).query}" style="height:35px" class="form-control" readonly="true">
 					               <span class="input-group-btn">
 					                  <button class="btn btn-default " type="button" disabled="disabled">
 					                     		查询
 					                  </button>
 					               </span>
+					               <span class="badge badge-success pull-right " style="">${option.get(step)-next+1}-${option.get(step)==1?"2":"1"}</span>
 					            </div><!-- /input-group -->
-					            <br/><br/>
-					            <p>本次查询还需要看<strong>${next}</strong>篇文档</p>
+					            
+					            <br/>
+					            <!-- 
+					            <div >
+					            <ol class="breadcrumb">
+  									<li><a class="path" href="#">${docs.get(step).query}</a></li>
+  									<li><a "active" class="path" href="#">${which==1?docs.get(step).title2:docs.get(step).title1}</a></li>
+ 									<span class="badge ${doc.option==1?"badge-success":""}">${next==1?"3":"2"} minutes</span>
+								</ol>
+					           </div>
+					            -->
 					            <div style="text-align:center">
-					            	<h3>${which==1?docs.get(step).title2:docs.get(step).title1}</h3>
+					            	<h2>${which==1?docs.get(step).title2:docs.get(step).title1}</h2>
 					            </div>
 								<p> ${which==1?docs.get(step).document:docs.get(step).interferedDocument}</p>
 							
@@ -113,7 +130,7 @@ p
 							<input type="hidden"  value="${docs.get(step).id}" name="id">
 							<input type="hidden"  value="${which}" name="which">
 							<input type="hidden"  value="${next}" name="next">
-							<div class="col-md-5" >
+							<div class="col-md-6" >
     			
     							<input id="value" name="value" value="0" type="number" class="rating" min=0 max=4 step=1 data-size="md">
     						</div>	

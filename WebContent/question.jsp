@@ -36,11 +36,11 @@
 			</header>
 			
 			<div class="col-md-4 col-md-offset-4">
-				<form role="form" action="questionOption.jsp">
+				<form role="form" action="regedit">
 				   <div class="form-group">
 				      	<label for="name" class="col-sm-2 control-label">名字</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="name" 
+					      <input type="text" class="form-control" id="name" name="username"
 					         placeholder="请输入您的昵称">
 					    </div>
 					    <br/><br/>
@@ -86,8 +86,8 @@
 			              <option value="video" icon="icons/icon_video.gif">Video</option>
                         </select>
                         <div class="col-md-offset-4" style="margin-top:30px">
-                       <button type="submit" onClick="location.href='quesionOption.jsp'"   class="btn btn-default">继续填写</button>
-                       <button type="button" onClick="location.href='startExperiment'"   class="btn btn-success">直接开始</button>
+                       <button type="submit" onClick="location.href='regedit'"   class="btn btn-default">继续填写</button>
+                       <button type="button" onClick="location.href='regedit?goon=1'"   class="btn btn-success">直接开始</button>
                        </div>
          
 					

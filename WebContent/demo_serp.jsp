@@ -6,7 +6,7 @@
 
 <meta chaset="utf-8">
 
-<title>${docs.get(step).query}</title>
+<title>china</title>
 <script src="http://code.jquery.com/jquery.js"></script>
 
 
@@ -20,9 +20,10 @@
 
 <link href="css/index.css" type="text/css">
 
-<link href="css/introjs.css" type="text/css">
+
  <!--   <link href="css/demo.css" rel="stylesheet"> -->
-  
+  <link href="css/introjs.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 <style type="text/css">
@@ -61,7 +62,20 @@ div {
 <body>
 	<div class="container">
 		<div class="row">
-			<jsp:include page="progress.jsp" flush="false" />
+			<div class="progress"   data-step="1" data-intro="这是进度条，已经完成了20%" data-position="down">
+	  			<div class="progress-bar progress-bar-success" style="width: 20%">
+	    			<span class="sr-only">20% Complete (success)</span>
+	  			</div>
+	  			
+	 			<div class="progress-bar progress-bar-warning progress-bar-striped" style="width:80%">
+	    			<span class="sr-only">80% Complete (warning)</span>
+	  			</div>
+	  			<!--
+	  			<div class="progress-bar progress-bar-danger" style="width: 10%">
+	    			<span class="sr-only">10% Complete (danger)</span>
+	  			</div>
+	  			-->
+			</div>
 			
 				<div id="custom-search-input " >
 						
@@ -69,8 +83,8 @@ div {
 						<div class="col-md-2" >
 							<h4>查询词</h4>
 						</div>
-							<div class="input-group col-md-7 " style="margin-bottom:5%" data-step="1" data-intro="Get it, use it.">
-					               <input type="text" value="${docs.get(step).query}" style="height:30px" class="form-control" readonly="true">
+							<div class="input-group col-md-7 " style="margin-bottom:5%" data-step="1" data-intro="查询词依然挂在这里，当时按钮不让点击" data-position='right' >
+					               <input type="text" value="China" style="height:30px" class="form-control" readonly="true">
 					               <span class="input-group-btn"  >
 					                 <!--  <button class="btn btn-default " type="button" disabled="disabled"> -->
 					                 <button class="btn btn-default " id="query_button" type="button" onclick_backup="window.location.href='viewDocument?which=-1'">
@@ -81,24 +95,17 @@ div {
 							
 							
 							
-							<div id="discription" style="margin-top:5%">
-								<h2>&nbsp;<kbd>description</kbd></h2>
-								<blockquote>
-									<p  > ${docs.get(step).discription}</p>
-           						 </blockquote>
-								
-							</div>
 							<div id="serps">
-								<div class="nums">
-									<h6>在0.001s内查出了   <strong>${doubleFlag==null?1:2} </strong>条结果</h6>
+								<div class="nums" data-step="2" data-intro="此次查询得到了两个结果" data-position='right'>
+									<h6>在0.001s内查出了   <strong>2 </strong>条结果</h6>
 								</div>
 								
-								<c:if test="${doubleFlag!=null}">
+								
 									
-									<p style="font-size: 16px; margin-top:10%">
+									<div style="font-size: 16px; margin-top:10%" data-step="3" data-intro="请先点击第一文档，打分完成后可可以看到第二个文档" data-position='right' >
 										<h4>
-											<img src="images/1.png"  style="width:15px;height:15px;">
-											<a style=" font-size: 24px" href="viewDocument?which=-1"><strong>${ docs.get(step).title1}</strong></a>
+											<img src="images/1.png"  style="width:20px;height:20px;">
+											<a style=" font-size: 24px " href="#" data-step="5" data-intro="查看文档" data-position='right'><strong>中国的传统艺术形式</strong></a>
 										</h4>
 										<!-- 
                							{ docs.get(step).interferedDocument}
@@ -106,19 +113,16 @@ div {
                 							<small>时间  链接</small>得分
 										</h5>
 										 -->
-									</p>
-								</c:if>	
+									</div>
 								
-									<p style="font-size: 16px;margin-top:10%">
+								
+									<div style="font-size: 16px;margin-top:10%" data-step="4" data-intro="此时不允许点击第二个文档" data-position='right'>
 										<h4>
-										<c:if test="${doubleFlag==null}">
-											<img src="images/1.png" style="width:15px;height:15px;">
-											<a style=" font-size: 24px" href="viewDocument?which=1"><strong>${ docs.get(step).title2}</strong></a>
-										</c:if>
-										<c:if test="${doubleFlag!=null}">
-											<img src="images/2.png" style="width:15px;height:15px;">
-											<a id="secondDoc" style=" font-size: 24px" href="viewDocument?which=1"><strong>${ docs.get(step).title2}</strong></a>
-										</c:if>
+										
+										
+											<img src="images/2.png" style="width:20px;height:20px;">
+											<a id="secondDoc" style=" font-size: 24px" href="#"><strong>大陆与台湾血浓于水</strong></a>
+										
 											
 											 
 										</h4>
@@ -128,7 +132,7 @@ div {
                 							<small>时间  链接</small>得分
 										</h5>
 										 -->
-									</p>
+									</div>
 							</div>
 					</div>
 			
@@ -137,29 +141,11 @@ div {
 
 		
 	</div>
+	<script type="text/javascript" src="js/intro.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#serps").hide();
-			//$("#query_button").val("我是一个按钮！")
-		  	$("#query_button").click(function(){
-		  		if($("#serps").is(":hidden")){
-		  			$("#discription").hide();
-			  		$("#serps").show();
-			  		$("this").attr("text","显示");
-		  		}
-		  		else{
-		  			$("#discription").show();
-			  		$("#serps").hide();
-			  		$("this").attr("text","查询");
-		  		}
-		  		
-		  	});
-			$("#secondDoc").click(function(){
-					alert("请按照顺序先点击第一篇文档");
-					return false;
-				}
-			);
-		});
+	 introJs().setOption('doneLabel', '查询').start().oncomplete(function() {
+	        window.location.href = 'demo_document.jsp?multipage=true';
+	      });
 	</script>
 </body>
 </html>

@@ -42,7 +42,10 @@ color:#000000
 a{
 	color:#000000
 }
-
+p{
+	text-align: justify;
+    text-justify: inter-word;
+}
 </style>
 <!-- 
 	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
@@ -77,7 +80,11 @@ a{
 				
 				<c:forEach var="doc" items="${docs}" varStatus="status">
 									
-					<div href="#" class="list-group-item " data-step="${status.count}" data-intro="关于 ${doc.query} 的查询，本次查询需要判断<strong>${doc.option+1}</strong>篇文档" data-position='right'>
+					<div href="#" class="list-group-item "
+					<c:if test="${status.count<3}">
+					 	 data-step="${status.count}" data-intro="关于 ${doc.query} 的查询，本次查询需要判断<strong>${doc.option+1}</strong>篇文档" data-position='right'
+					 </c:if>
+					 >
 					  	<span class="badge ${doc.option==1?"badge-success":""}">${doc.option==1?"3":"2"} minutes</span>
 					    <h4 class="list-group-item-heading">${doc.query}&nbsp;&nbsp;&nbsp;&nbsp;${doc.option==1?"":""}</h4>
 					    <p class="list-group-item-text">${doc.discription}</p>
@@ -94,7 +101,7 @@ a{
     <script type="text/javascript">
       document.getElementById('startButton').onclick = function() {
         introJs().setOption('doneLabel', 'Next page').start().oncomplete(function() {
-          window.location.href = 'demo1.jsp?multipage=true';
+          window.location.href = 'demo_query.jsp?multipage=true';
         });
       };
     </script>

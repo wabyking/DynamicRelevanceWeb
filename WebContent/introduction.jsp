@@ -1,4 +1,7 @@
-﻿<%@page contentType="text/html" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 
 <html>
@@ -11,7 +14,8 @@
 <title>基于眼动的动态相关性实验</title>
 
 <script src="http://code.jquery.com/jquery.js"></script>
-
+<link href="css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
+<script src="js/star-rating.js" type="text/javascript"></script>
 
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="bootstrap/js/bootstrap-paginator.js"></script>
@@ -216,18 +220,28 @@ p.discription
 	  				<div class=" col-md-12" style="padding-left:0px">
 	  				 	<p class="discription">看完每一个文档，判断文档是否相关</p>
 	 					<blockquote>
-  							<p><em>文档相关意味着，文档的内容跟相应查询信息需求是一致的，能够满足你的查询需要（定义虚斟酌）</em></p>
+  							<p><em>文档相关意味着，文档的内容跟相应查询信息需求是一致的，能够满足你的查询需要</em></p>
 						</blockquote>
-						
-						
+						<!--  
+						<c:set var="string1" value="1 2 3 4"/>
+						<c:set var="string2" value="${fn:split(string1, ' ')}" />
+						-->
+						<c:forEach var="num" items="${fn:split('1 2 3 4', ' ')}" varStatus="status">
+					
+							<input id="value" name="value" value="${num}" type="number" class="rating" min=0 max=4 step=1 data-size="md">
+		  				
+		  				</c:forEach>
+		  				<!--  
 		  				<p class="discription">根据自己的判断点击相关按钮，将会自动进入下一个查询会话</p>
 						<div class="col-md-6  " >
 						 	<button id="up" class="button button-3d button-box button-jumbo" onclick="alert('up')"><i class="fa fa-thumbs-up">&nbsp;relevance</i></button>
 						</div>
+						
 						<div class="col-md-6" >
 						 	<button id="down" class="button button-3d button-box button-jumbo" onclick="alert('down')"><i class="fa fa-thumbs-down">&nbsp;irrelevance</i></button>
+						 	
 						 </div>
-		  				
+		  				-->
 		  				<!-- 
 		  					<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 		  				</div>

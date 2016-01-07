@@ -6,7 +6,7 @@
 
 <meta chaset="utf-8">
 
-<title>Baigle Search</title>
+<title>next</title>
 <script src="cache/jquery.min.js"></script>
 <link rel="stylesheet" href="cache/font-awesome.min.css">
 <link rel="stylesheet" href="css/buttons.css">
@@ -48,13 +48,13 @@ a:hover {
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="progress"  >
-	  			<div class="progress-bar progress-bar-success" style="width: 20%">
-	    			<span class="sr-only">20% Complete (success)</span>
+			<div class="progress"  step="1" data-intro="进度条增加" data-position="down">
+	  			<div class="progress-bar progress-bar-success" style="width: 30%">
+	    			<span class="sr-only">30% Complete (success)</span>
 	  			</div>
 	  			
-	 			<div class="progress-bar progress-bar-warning progress-bar-striped" style="width:80%">
-	    			<span class="sr-only">80% Complete (warning)</span>
+	 			<div class="progress-bar progress-bar-warning progress-bar-striped" style="width:70%">
+	    			<span class="sr-only">70% Complete (warning)</span>
 	  			</div>
 	  			<!--
 	  			<div class="progress-bar progress-bar-danger" style="width: 10%">
@@ -70,7 +70,7 @@ a:hover {
 					
 					<div class=" col-md-offset-2" style="margin-top:10%" step="1" data-intro="点击此按钮开启下一个查询" data-position="right">
 				 		<span class="button-wrap">
-	   				 		<a href="" class="button button-pill button-raised button-caution">下一查询</a>
+	   				 		<a href="" class="button button-pill button-raised button-caution">next</a>
 	  					</span>
   					</div>
 				

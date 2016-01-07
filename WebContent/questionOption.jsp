@@ -111,7 +111,7 @@
 
 					// let's just simulate something...
 					var messageEl = theForm.querySelector( '.final-message' );
-					messageEl.innerHTML = 'Thank you! We\'ll be in touch.';
+					messageEl.innerHTML = '马上开始实验吧';
 					
 					classie.addClass( messageEl, 'show' );
 					alert("over");

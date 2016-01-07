@@ -59,13 +59,13 @@ public class QueryDocumentsPair implements Serializable{
 		this.query = query;
 	}
 	public String getInterferedDocument() {
-		return TagAdapter.convert(interferedDocument);
+		return interferedDocument;//TagAdapter.convert(interferedDocument);
 	}
 	public void setInterferedDocument(String interferedDocument) {
 		this.interferedDocument = interferedDocument;
 	}
 	public String getDocument() {
-		return TagAdapter.convert(document);
+		return document;//TagAdapter.convert(document);
 	}
 	public void setDocument(String document) {
 		this.document = document;
