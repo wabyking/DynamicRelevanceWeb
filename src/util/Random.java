@@ -1,4 +1,6 @@
 package util;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
@@ -16,6 +18,17 @@ public class Random {
 	}
 	
 	
+    public static List<Integer> getBoolListForTwoOption(int size,int num)
+	{
+    	List<Integer> list=new ArrayList<Integer>();
+    	 
+		for(int i=0;i<size;i++){
+			//System.out.println(num);
+			list.add(num);
+		}
+		return list;
+	}
+    
 	public static List<Integer> getBoolListWithoutRandom(int size)
 	{
 		List<Integer> list=new ArrayList<Integer>();
@@ -24,6 +37,16 @@ public class Random {
 			int num=i%2;
 			System.out.println(num);
 			list.add(num);
+		}
+		return list;
+	}
+	
+	public static List<Integer> getOringinalOrder(int size)
+	{
+		List<Integer> list=new ArrayList<Integer>();
+		
+		for(int i=0;i<size;i++){
+			list.add(i);
 		}
 		return list;
 	}
@@ -39,10 +62,28 @@ public class Random {
         Collections.shuffle(list); 
         return list;
 	}
-	
+	public static int  getHaspGroup(String name)
+	{
+		MessageDigest mdInst=null;
+		try {
+			mdInst = MessageDigest.getInstance("MD5");
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+         // 使用指定的字节更新摘要
+         mdInst.update(name.getBytes());
+         // 获得密文
+         byte[] md = mdInst.digest();
+         System.out.println(md);
+		return Math.abs(md[10]%2);
+		
+	}
 	
 	public static void main(String args[]){
-		System.out.println(getBoolList(10).size());
+		String names[]={"waby","lj","doublelin","lichao","szg","asia","zp","lr","lixiang"};
+		for(String name : names)
+			System.out.println(getBoolListForTwoOption(10,getHaspGroup(name)));
 	}
 
 }

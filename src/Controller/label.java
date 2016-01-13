@@ -58,20 +58,24 @@ public class label extends HttpServlet {
 		int step=(int)session.getAttribute("step");
 		
 		
-		String next=request.getParameter("next");
-		if(next==null)
+		String dno=request.getParameter("dno");
+		if(which==null)
 		{
-			
-			request.getRequestDispatcher("/relax.jsp").forward(request,response);
+			return;
+			//request.getRequestDispatcher("/relax.jsp").forward(request,response);
 		}
-		else if(Integer.parseInt(next)==1)
+		else if(Integer.parseInt(which)==1)
 		{
-			request.setAttribute("which",1);
-			request.setAttribute("next",0);
+			request.setAttribute("which",2);
+			if (dno.equals("1"))
+				request.setAttribute("dno",2);
+			else
+				request.setAttribute("dno",1);
 			request.getRequestDispatcher("document.jsp").forward(request,response);
 		}
 		else
 		{
+			
 			request.getRequestDispatcher("/relax.jsp").forward(request,response);
 		}
 		//String step=request.getParameter("step");

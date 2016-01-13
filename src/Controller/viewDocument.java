@@ -42,38 +42,54 @@ public class viewDocument extends HttpServlet {
 		HttpSession session = request.getSession();
 		if(null!=session.getAttribute("step"))
 				 step=(int)session.getAttribute("step");
-		
-		List<Integer> option=(List<Integer>) session.getAttribute("option");
+		//viewDocument?which=2&dno=1
+		//List<Integer> option=(List<Integer>) session.getAttribute("option");
 		int which=Integer.parseInt(request.getParameter("which"));
-
-		if(which==-1)
-		{
-			
-			if(option.get(step)==1)
-			{
-				
-				request.setAttribute("which",0);
-				request.setAttribute("next",1);
-			}
-			else
-			{
-				request.setAttribute("which",1);
-				request.setAttribute("next",0);
-			}
-			
-	        
-		}
-		else if(which==0)  //will see the interfered document, so you will get a next document
-		{
-			request.setAttribute("which",0);
-			request.setAttribute("next",1);
-		}
-		else               //means over
-		{
-			request.setAttribute("which",1);
-			request.setAttribute("next",0);
-			
-		}
+		int dno=Integer.parseInt(request.getParameter("dno"));
+		request.setAttribute("which", which);
+		request.setAttribute("dno", dno);
+		
+//		if(which==-1)
+//		{
+//			
+//			if(option.get(step)==1)
+//			{
+//				if (which==1)
+//				{
+//					request.setAttribute("which",2);
+//					request.setAttribute("dno",which);
+//					request.setAttribute("next",1);
+//				}
+//				else if(which==2)
+//				{
+//					request.setAttribute("which",2);
+//					request.setAttribute("dno",which);
+//					request.setAttribute("next",1);
+//				}
+//			}
+//			else
+//			{
+//				request.setAttribute("which",1);
+//				request.setAttribute("next",0);
+//			}
+//			
+//	        
+//		}
+//		else if(which==1)  //will see the interfered document, so you will get a next document
+//		{
+//			request.setAttribute("which",0);
+//			request.setAttribute("next",1);
+//		}
+//		else if(which==2)              //means over
+//		{
+//			request.setAttribute("which",1);
+//			request.setAttribute("next",0);
+//			
+//		}
+//		else
+//		{
+//			
+//		}
 		//which means the second document. next means next one
 		request.getRequestDispatcher("document.jsp").forward(request,response);
 		  

@@ -52,8 +52,28 @@ public class startExperiment extends HttpServlet {
 		
 		Map<Integer,QueryDocumentsPair> docs=QueryDocumentPairDAO.getAll();
 		int len=docs.size();
-		List<Integer> option=Random.getBoolListWithoutRandom(len);
-		List<Integer> order=Random.randomOrder(len);
+		
+		//for random order use the code below
+//		List<Integer> option=Random.getBoolListWithoutRandom(len);
+//		List<Integer> order=Random.randomOrder(len);
+		
+		HttpSession session = request.getSession();
+        String name=(String)session.getAttribute("user");
+        System.out.println(name);
+        if(name==null){
+//        	name=ChineseName.getName()+"~";
+//        	session.setAttribute("user",name);
+        	request.getRequestDispatcher("/question.jsp").forward(request,response);  
+        	return ;
+        }
+        int group=Random.getHaspGroup(name);
+        List<Integer> option=Random.getBoolListForTwoOption(len, group);
+		List<Integer> order=Random.getOringinalOrder(len);
+		
+		//int group=option.get(0);
+//		session.setAttribute("user",name);
+//        session.setAttribute("group",group);
+		
 		
 		List<QueryDocumentsPair> qds=new ArrayList<QueryDocumentsPair>();
 		for(int i=0;i<len;i++)
@@ -63,7 +83,7 @@ public class startExperiment extends HttpServlet {
 			qds.add(qd);
 			
 		}
-		HttpSession session = request.getSession();
+		
        // if (session.getAttribute("docs") == null) {
             session.setAttribute("docs",qds);
             session.setAttribute("len",len);
@@ -71,11 +91,6 @@ public class startExperiment extends HttpServlet {
             session.setAttribute("order",order);
             session.setAttribute("step",0);
         //}
-        String name=(String)session.getAttribute("user");
-        if(name==null){
-        	name=ChineseName.getName()+"~";
-        	session.setAttribute("user",name);
-        }
         LabelDAO.addUser(name,qds);
         request.getRequestDispatcher("/experiment.jsp").forward(request,response);  
 		

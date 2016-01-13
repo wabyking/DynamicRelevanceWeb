@@ -13,6 +13,7 @@ import com.mongodb.client.MongoDatabase;
 import static java.util.Arrays.asList;
 import util.Label;
 import util.QueryDocumentsPair;
+import util.Random;
 
 public class LabelDAO {
 	public static void label(String name,Label label)
@@ -28,7 +29,9 @@ public class LabelDAO {
 	{
 		MongoDatabase db=MongoDB.getDatabase();
 		List<Document> list=new ArrayList<Document>();
+		 int group=Random.getHaspGroup(name);
 		db.getCollection("label").insertOne(new Document("name", name));
+		db.getCollection("label").insertOne(new Document("group", group));
 		for(int i=0;i<qds.size();i++)
 		{
 			QueryDocumentsPair qd=qds.get(i);

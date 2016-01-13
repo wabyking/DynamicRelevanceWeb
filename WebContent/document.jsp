@@ -92,7 +92,12 @@ p
 					                     		查询
 					                  </button>
 					               </span>
-					               <span class="badge badge-success pull-right " style="">${option.get(step)-next+1}-${option.get(step)==1?"2":"1"}</span>
+					                
+					                <span class="badge badge-success pull-right " style="">${which}-2</span> 
+					                
+					               <!-- 
+					               					               <span class="badge badge-success pull-right " style="">${option.get(step)-next+1}-${option.get(step)==1?"2":"1"}</span>
+					            	-->
 					            </div><!-- /input-group -->
 					            
 					            <br/>
@@ -106,9 +111,9 @@ p
 					           </div>
 					            -->
 					            <div style="text-align:center">
-					            	<h2>${which==1?docs.get(step).title2:docs.get(step).title1}</h2>
+					            	<h2>${dno==2?docs.get(step).title2:docs.get(step).title1}</h2>
 					            </div>
-								<p> ${which==1?docs.get(step).document:docs.get(step).interferedDocument}</p>
+								<p> ${dno==2?docs.get(step).document:docs.get(step).interferedDocument}</p>
 							
 					</div>
 					<!----<div class="col-md-7 col-md-offset-3 " style="margin-top: 30px;">
@@ -128,8 +133,8 @@ p
 						<form id="labelForm" action="label"  methon="post">
 						
 							<input type="hidden"  value="${docs.get(step).id}" name="id">
+							<input type="hidden"  value="${dno}" name="dno">
 							<input type="hidden"  value="${which}" name="which">
-							<input type="hidden"  value="${next}" name="next">
 							<div class="col-md-6" >
     			
     							<input id="value" name="value" value="0" type="number" class="rating" min=0 max=4 step=1 data-size="md">

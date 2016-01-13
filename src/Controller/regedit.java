@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import util.Random;
+
 /**
  * Servlet implementation class regedit
  */
@@ -48,6 +50,8 @@ public class regedit extends HttpServlet {
 		     SimpleDateFormat sdf=new SimpleDateFormat("$yyyy-MM-dd-HH:mm:ss");
 		     String sd = sdf.format(new Date(Long.parseLong(String.valueOf(timeStamp))));   
 			session.setAttribute("user", username+sd);
+			 int group=Random.getHaspGroup(username);
+			 session.setAttribute("group",group);
 		}
 		if(goon!=null&&goon=="1")
 		{

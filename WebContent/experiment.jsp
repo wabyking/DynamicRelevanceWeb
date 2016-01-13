@@ -60,7 +60,7 @@ p{
 	<div class="main">
 		
 		
-			<p class="title1 ">查询词一览</p>
+			<p class="title1 ">查询词一览${user}-${group} </p>
 			<div class="col-md-offset-7">
 			
 				<span class="button-wrap">

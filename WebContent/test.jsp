@@ -90,38 +90,36 @@ div {
 							</div>
 							<div id="serps">
 								<div class="nums">
-									<h6>在0.001s内查出了   <strong>${doubleFlag==null?1:2} </strong>条结果</h6>
+									<h6>在0.001s内查出了   <strong>2 </strong>条结果</h6>
 								</div>
 								
-								<c:if test="${doubleFlag!=null}">
-									
-									<p style="font-size: 16px; margin-top:10%">
-										<h4>
-											<img src="images/1.png"  style="width:15px;height:15px;">
-											<a style=" font-size: 24px" href="viewDocument?which=-1"><strong>${ docs.get(step).title1}</strong></a>
-										</h4>
-										<!-- 
-               							{ docs.get(step).interferedDocument}
-                						<h5 style="color: #008000">
-                							<small>时间  链接</small>得分
-										</h5>
-										 -->
-									</p>
-								</c:if>	
+			
 								
 									<p style="font-size: 16px;margin-top:10%">
+										
+										<c:if test="${option.get(step)==0}">
 										<h4>
-										<c:if test="${doubleFlag==null}">
 											<img src="images/1.png" style="width:15px;height:15px;">
-											<a style=" font-size: 24px" href="viewDocument?which=1"><strong>${ docs.get(step).title2}</strong></a>
-										</c:if>
-										<c:if test="${doubleFlag!=null}">
+											<a style=" font-size: 24px" href="viewDocument?which=1&dno=1"><strong>${ docs.get(step).title1}</strong></a>
+										</h4>
+										<h4>	
 											<img src="images/2.png" style="width:15px;height:15px;">
-											<a id="secondDoc" style=" font-size: 24px" href="viewDocument?which=1"><strong>${ docs.get(step).title2}</strong></a>
+											<a id="secondDoc" style=" font-size: 24px" href="viewDocument?which=2&dno=2"><strong>${ docs.get(step).title2}</strong></a>
+										</h4>
+										</c:if>
+										<c:if test="${option.get(step)==1}">
+										<h4>
+											<img src="images/1.png" style="width:15px;height:15px;">
+											<a  style=" font-size: 24px" href="viewDocument?which=1&dno=2"><strong>${ docs.get(step).title2}</strong></a>
+										</h4>
+										<h4>
+											<img src="images/2.png" style="width:15px;height:15px;">
+											<a id="secondDoc" style=" font-size: 24px" href="viewDocument?which=2&dno=1"><strong>${ docs.get(step).title1}</strong></a>
+										</h4>
 										</c:if>
 											
 											 
-										</h4>
+										
 										<!-- 
                							{ docs.get(step).document}
                 						<h5 style="color: #008000">
