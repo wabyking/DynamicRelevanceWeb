@@ -198,7 +198,7 @@ p.discription
 			    <p class="list-group-item-text">根据例子，熟悉实验的步骤和方法</p>
 			  </a>
 			  <a href="#" class="list-group-item ">
-			  	<span class="badge">30 minutes</span>
+			  	<span class="badge">60 minutes</span>
 			    <h4 class="list-group-item-heading">正式实验</h4>
 			    <p class="list-group-item-text">随机顺序开始<strong>20组中英文</strong>查询</p>
 			  </a>
@@ -210,11 +210,11 @@ p.discription
 			<div class="jumbotron col-md-6 col-md-offset-3 " style="padding-left:30px">
 				
   				 	<h2>实验介绍</h2>
- 				 	<p class="discription">您将会完成由系统随机出20组查询，每组查询将会有一下两种形式</p>
+ 				 	<p class="discription">您将会完成由系统随机出20组查询会话，每次会话将会有这样的形式：</p>
 	 				
-	 				 <div class=" col-md-6 col-md-offset-1" >
-	 				 	<button type="button" class="btn btn-primary btn-lg btn-block">一个查询对应单文档</button>
-					 	<button type="button" class="btn btn-default btn-lg btn-block">一个查询对应两个文档</button>
+	 				 <div class=" col-md-6 col-md-offset-3" >
+	 				 
+					 	<button type="button" class="btn btn-primary btn-lg btn-block">一个查询对应两个文档</button>
 	  				</div>
 	  				<br/><br/><br/><br/><br/>
 	  				<div class=" col-md-12" style="padding-left:0px">
