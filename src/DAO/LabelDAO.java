@@ -23,7 +23,7 @@ public class LabelDAO {
 		//db.getCollection("label").updateOne(new Document("name", name),
 		 //       new Document("$set", new Document(label.getId()+".order"+label.getOrder(), label.getValue())));
 		db.getCollection("label").updateOne(new Document("name", name),
-		        new Document("$set", new Document(label.getId()+".order"+label.getOrder(), label.getValue())));
+		        new Document("$set", new Document(label.getId()+".order"+label.getDno(), label.getValue())));
 	}
 	public static void addUser(String name,List<QueryDocumentsPair> qds)
 	{
@@ -31,26 +31,30 @@ public class LabelDAO {
 		List<Document> list=new ArrayList<Document>();
 		 int group=Random.getHaspGroup(name);
 		db.getCollection("label").insertOne(new Document("name", name));
-		db.getCollection("label").insertOne(new Document("group", group));
+		//db.getCollection("label").insertOne(new Document("group", group));
+		db.getCollection("label").updateOne(new Document("name", name),
+		        new Document("$set", new Document("group", group)));
 		for(int i=0;i<qds.size();i++)
 		{
 			QueryDocumentsPair qd=qds.get(i);
 			Document doc=new Document();
-			if(qd.getOption() ==1)
+//			if(qd.getOption() ==1)
 			{
 				//doc.append("order1", -1).append("order0", -1);
 				db.getCollection("label").updateOne(new Document("name", name),
 				        new Document("$set", new Document(String.valueOf(qd.getId())+".order1", -1)));
 				db.getCollection("label").updateOne(new Document("name", name),
-				        new Document("$set", new Document(String.valueOf(qd.getId())+".order0", -1)));
+				        new Document("$set", new Document(String.valueOf(qd.getId())+".order2", -1)));
 			}
-			else
-			{
-				//doc.append("order1", -1);
-			
-			db.getCollection("label").updateOne(new Document("name", name),
-			        new Document("$set", new Document(String.valueOf(qd.getId())+".order1", -1)));
-			}
+//			else
+//			{
+//				//doc.append("order1", -1);
+//			
+//			db.getCollection("label").updateOne(new Document("name", name),
+//			        new Document("$set", new Document(String.valueOf(qd.getId())+".order00", -1)));
+//			db.getCollection("label").updateOne(new Document("name", name),
+//			        new Document("$set", new Document(String.valueOf(qd.getId())+".order01", -1)));
+//			}
 			//list.add(doc);
 			
 		}

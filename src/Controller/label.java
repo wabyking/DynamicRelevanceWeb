@@ -48,17 +48,18 @@ public class label extends HttpServlet {
 		String value=request.getParameter("value");
 		String qid=request.getParameter("id");
 		String which=request.getParameter("which");
+		String dno=request.getParameter("dno");
 		
 		HttpSession session = request.getSession();
 		String name=(String)session.getAttribute("user");
-		LabelDAO.label(name, new Label(Integer.parseInt(qid),Integer.parseInt(which),Integer.parseInt(value)));
+		LabelDAO.label(name, new Label(Integer.parseInt(qid),Integer.parseInt(which),Integer.parseInt(value),Integer.parseInt(dno)));
 		
 		List<QueryDocumentsPair> qds= (List<QueryDocumentsPair>)session.getAttribute("docs");
 		List<Integer> option= (List<Integer>)session.getAttribute("option");
 		int step=(int)session.getAttribute("step");
 		
 		
-		String dno=request.getParameter("dno");
+		
 		if(which==null)
 		{
 			return;
